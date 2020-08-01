@@ -38,15 +38,14 @@ results.each((index, element) => {
 
   console.log(location);
 });
-
 var results = $("li").filter("[class='media'],[class='media featured']"); //hardverapro sorting
-
+//https://hardverapro.hu/aprok/notebook/index.html
 results.each((index, element) => {
   const result = $(element);
   const title = result
-    .children("a.uad-image")
-    .children("img.d-block")
-    .prop("currentSrc");
+    .children("div.media-body")
+    .children("div.uad-title")
+    .children("h1").children("a").attr("href")
 
   console.log(title);
 });

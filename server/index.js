@@ -45,8 +45,14 @@ function getResults(body) {
     const img =
       baseUrl +
       result.children("a.uad-image").children("img.d-block").attr("src");
+    const link = result
+      .children("div.media-body")
+      .children("div.uad-title")
+      .children("h1")
+      .children("a")
+      .attr("href");
 
-    results.push({ title, price, location, img });
+    results.push({ title, price, location, img, link });
   });
   return results;
 }
