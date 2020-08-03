@@ -5,6 +5,7 @@ const app = new Vue({
   data: {
     term: "",
     terms: [],
+    results: [],
   },
   methods: {
     onSubmit() {
@@ -14,7 +15,8 @@ const app = new Vue({
       fetch(url)
         .then((response) => response.json())
         .then((json) => {
-          console.log(json);
+          console.log(this.results);
+          this.results = json.results;
         });
     },
   },

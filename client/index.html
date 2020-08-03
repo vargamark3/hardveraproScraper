@@ -46,6 +46,20 @@
           </button>
         </div>
       </form>
+      <section>
+        <ul class="list-unstyled">
+          <li v-for="result in results" class="media m-3">
+            <img class="img mr-2" :src="result.img" alt="hirdetés kép" />
+            <div class="media-body">
+              <h1>{{result.title}}</h1>
+              <h2>{{result.price}}</h2>
+              <h3><a :href="result.link">ugrás a hirdetéshez</a></h3>
+              <h4>{{result.location}}</h4>
+              <h5>{{result.time}}</h5>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

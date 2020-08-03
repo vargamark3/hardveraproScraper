@@ -28,9 +28,12 @@ function getResults(body) {
       .children("div.uad-title")
       .children("h1")
       .text()
-      .split(/(\s–\s)/); //title - time
-    const title = rawTitle[0];
-    const time = rawTitle[2];
+      .split(/(\s–\s)/); //title - time regex
+    const title = rawTitle[rawTitle.length - 3]; //maybe more than one /(\s–\s)/ ....
+    let time = rawTitle[rawTitle.length - 1];
+    if (time === "Előresorolt hirdetés") {
+      time = "";
+    }
 
     const price = result
       .children("div.media-body")
@@ -42,7 +45,7 @@ function getResults(body) {
       .children("div.uad-info")
       .children("div.uad-light");
     if (location.children().length > 0) {
-      location = location.children("span").attr("data-original-title");
+      location = location.children("span").attr("title");
     } else {
       location = location.text();
     }
@@ -55,9 +58,13 @@ function getResults(body) {
       .children("h1")
       .children("a")
       .attr("href");
-
-    results.push({ title, time, price, location, img, link });
+    if (time === "") {
+      results.push({ title, time, price, location, img, link });
+    } else {
+      results.unshift({ title, time, price, location, img, link });
+    }
   });
+
   return results;
 }
 
