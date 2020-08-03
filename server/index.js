@@ -23,11 +23,15 @@ function getResults(body) {
   const results = [];
   listings.each((index, element) => {
     const result = $(element);
-    const title = result
+    const rawTitle = result
       .children("div.media-body")
       .children("div.uad-title")
       .children("h1")
-      .text();
+      .text()
+      .split(/(\s–\s)/); //title - time
+    const title = rawTitle[0];
+    const time = rawTitle[2];
+
     const price = result
       .children("div.media-body")
       .children("div.uad-info")
@@ -52,7 +56,7 @@ function getResults(body) {
       .children("a")
       .attr("href");
 
-    results.push({ title, price, location, img, link });
+    results.push({ title, time, price, location, img, link });
   });
   return results;
 }
