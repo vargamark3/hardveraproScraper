@@ -25,7 +25,7 @@
               placeholder="Keresés"
             />
           </div>
-          <button type="submit" class="btn btn-primary col-sm-1">
+          <button type="submit" class="btn btn-primary ">
             <svg
               width="1em"
               height="1em"
@@ -48,9 +48,9 @@
       </form>
       <section>
         <ul class="list-unstyled">
-          <li v-for="result in results" class="media m-3">
-            <img class="img mr-2" :src="result.img" alt="hirdetés kép" />
-            <div class="media-body">
+          <li v-for="result in results" class="media m-3 row">
+            <img class="img mr-2 col-5" :src="result.img" alt="hirdetés kép" />
+            <div class="media-body col-7">
               <h1>{{result.title}}</h1>
               <h2>{{result.price}}</h2>
               <h3><a :href="result.link">ugrás a hirdetéshez</a></h3>
