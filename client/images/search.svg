@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round"
+        stroke-linejoin="round">
+        <g id="Outline" transform="translate(-450.000000, -50.000000)" stroke="#FFFFFF">
+            <g id="search" transform="translate(450.000000, 50.000000)">
+                <path
+                    d="M18.5,9.5 C18.5,14.471 14.471,18.5 9.5,18.5 C4.529,18.5 0.5,14.471 0.5,9.5 C0.5,4.529 4.529,0.5 9.5,0.5 C14.471,0.5 18.5,4.529 18.5,9.5 Z"
+                    id="Stroke-1"></path>
+                <path
+                    d="M23,24.5 C22.616,24.5 22.232,24.354 21.939,24.061 L15.939,18.061 C15.354,17.475 15.354,16.525 15.939,15.939 C16.525,15.354 17.475,15.354 18.061,15.939 L24.061,21.939 C24.646,22.525 24.646,23.475 24.061,24.061 C23.768,24.354 23.384,24.5 23,24.5 Z"
+                    id="Stroke-3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

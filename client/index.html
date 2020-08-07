@@ -4,78 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hardverapro Lite</title>
+    <link rel="stylesheet" href="style.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap"
       rel="stylesheet"
-      href="https://bootswatch.com/4/solar/bootstrap.min.css"
     />
   </head>
+
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Hardverapro Lite</a>
-    </nav>
+    <div class="header">
+      <h1>Hardverapro Lite</h1>
+    </div>
     <main class="container" id="app">
       <form @submit.prevent="onSubmit">
-        <div class="form-group row m-3">
-          <div class="col-sm-10">
-            <input
-              v-model="term"
-              type="text"
-              id="term"
-              class="form-control"
-              placeholder="Keresés"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary ">
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              class="bi bi-search"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
-              />
-            </svg>
-          </button>
-        </div>
+        <input v-model="term" type="text" id="term" placeholder="Keresés" />
+        <button type="submit" class="btn">
+          <img src="images/search.svg" alt="search" />
+        </button>
       </form>
+
       <section>
-        <ul class="list-unstyled">
-          <li v-for="result in results" class="media m-3 row">
-            <img class="img mr-2 col-5" :src="result.img" alt="hirdetés kép" />
-            <div class="media-body col-7">
-              <h1>{{result.title}}</h1>
-              <h2>{{result.price}}</h2>
-              <h3><a :href="result.link">ugrás a hirdetéshez</a></h3>
-              <h4>{{result.location}}</h4>
-              <h5>{{result.time}}</h5>
-            </div>
+        <ul>
+          <li class="grid-container" v-for="result in results">
+            <img class="item1" :src="result.img" alt="hirdetés kép" />
+
+            <h1>{{result.title}}</h1>
+            <h2>{{result.price}}</h2>
+            <h3>
+              <a :href="result.link">ugrás a hirdetéshez</a>
+            </h3>
+            <h4>{{result.location}}</h4>
+            <h5>{{result.time}}</h5>
           </li>
         </ul>
       </section>
     </main>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
     <script src="client.js"></script>
   </body>

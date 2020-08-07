@@ -17,6 +17,13 @@ app.get("/", (request, response) => {
   });
 });
 
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+}
+
 function getResults(body) {
   const $ = cheerio.load(body);
   const listings = $("li").filter("[class='media'],[class='media featured']");
@@ -71,13 +78,15 @@ function getResults(body) {
 app.get("/search/:search_term", (request, response) => {
   const url = `${baseUrl}/aprok/keres.php?stext=${request.params.search_term}`;
   fetch(url)
+    .then(handleErrors)
     .then((response) => response.text())
     .then((body) => {
       const results = getResults(body);
       response.json({
         results,
       });
-    });
+    })
+    .catch((error) => console.log(error));
 });
 
 app.use((request, response, next) => {
